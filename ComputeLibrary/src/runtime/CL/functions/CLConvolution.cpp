@@ -93,7 +93,6 @@ template <unsigned int matrix_size>
 void                   CLConvolutionSquare<matrix_size>::run()
 {
     CLScheduler::get().enqueue(_border_handler);
-
     if(_is_separable)
     {
         MemoryGroupResourceScope scope_mg(_memory_group);

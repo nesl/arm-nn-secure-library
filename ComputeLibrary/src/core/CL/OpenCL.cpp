@@ -337,6 +337,7 @@ cl_int clEnqueueNDRangeKernel(
 {
     arm_compute::CLSymbols::get().load_default();
     auto func = arm_compute::CLSymbols::get().clEnqueueNDRangeKernel_ptr;
+    // printf("\n\n\nRENJURENJU-----SOMEONE IS CALLING ME! clEnqueueNDRangeKernel\n\n");
     if(func != nullptr)
     {
         return func(command_queue, kernel, work_dim, global_work_offset, global_work_size, local_work_size, num_events_in_wait_list, event_wait_list, event);
@@ -470,7 +471,7 @@ cl_int clEnqueueWriteBuffer(
 {
     arm_compute::CLSymbols::get().load_default();
     auto func = arm_compute::CLSymbols::get().clEnqueueWriteBuffer_ptr;
-    callIntoTrustZone();
+    // callIntoTrustZone();
     if(func != nullptr)
     {
         return func(command_queue, buffer, blocking_write, offset, size, ptr, num_events_in_wait_list, event_wait_list, event);

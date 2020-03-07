@@ -282,6 +282,7 @@ Im2ColConfiguration configure_opencl_kernel(const ITensorInfo *input, const Size
     im2col_config.num_elems_processed_per_iteration = num_elems_processed_per_iteration;
     im2col_config.is_padding_required_nchw          = is_padding_required_nchw;
 
+    printf("\n\nRenju: openCL kernel name used: %s\n\n", kernel_name.c_str());
     return im2col_config;
 }
 } // namespace

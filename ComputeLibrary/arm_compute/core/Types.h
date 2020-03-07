@@ -92,6 +92,24 @@ enum class DataType
     SIZET               /**< size_t */
 };
 
+static std::map< DataType, const char * > data_type_info = {
+   {DataType::UNKNOWN, "Unknown"},
+   {DataType::U8, "U8"},
+   {DataType::S8, "S8"},
+   {DataType::QSYMM8, "QSYMM8"},
+   {DataType::QSYMM8_PER_CHANNEL, "QSYMM8_PER_CHANNEL"},
+   {DataType::U16, "U16"},
+   {DataType::S16, "S16"},
+   {DataType::QSYMM16, "QSYMM16"},
+   {DataType::U32, "U32"},
+   {DataType::S32, "S32"},
+   {DataType::S64, "S64"},
+   {DataType::F16, "F16"},
+   {DataType::F32, "F32"},
+   {DataType::F64, "F64"},
+   {DataType::SIZET, "SIZET"}
+};
+
 /** Available Sampling Policies */
 enum class SamplingPolicy
 {

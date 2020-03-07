@@ -36,7 +36,9 @@ void ICLSimple2DKernel::run(const Window &window, cl::CommandQueue &queue)
     ARM_COMPUTE_ERROR_ON_INVALID_SUBWINDOW(ICLKernel::window(), window);
 
     Window slice = window.first_slice_window_2D();
-
+    // printf("RL: ffffmmmlll!!! --- Running this ICLSimple2DKernel\n");
+    // printf("RL: _input data type: %s\n", data_type_info[_input->info()->data_type()]);
+    // printf("RL: _input total size: %ld\n\n\n", _input->info()->total_size());
     do
     {
         unsigned int idx = 0;

@@ -58,6 +58,7 @@ void CLConvolutionLayer::configure(ICLTensor *input, const ICLTensor *weights, c
             auto f = arm_compute::support::cpp14::make_unique<CLWinogradConvolutionLayer>(_memory_manager);
             f->configure(input, weights, biases, output, conv_info, act_info, enable_fast_math);
             _function = std::move(f);
+            printf("Renju: ConvolutionMethod::WINOGRAD\n");
             break;
         }
         case ConvolutionMethod::DIRECT:
@@ -66,6 +67,7 @@ void CLConvolutionLayer::configure(ICLTensor *input, const ICLTensor *weights, c
             auto f = arm_compute::support::cpp14::make_unique<CLDirectConvolutionLayer>();
             f->configure(input, weights, biases, output, conv_info, act_info);
             _function = std::move(f);
+            printf("Renju: ConvolutionMethod::DIRECT\n");
             break;
         }
         case ConvolutionMethod::GEMM:
@@ -73,6 +75,7 @@ void CLConvolutionLayer::configure(ICLTensor *input, const ICLTensor *weights, c
             auto f = arm_compute::support::cpp14::make_unique<CLGEMMConvolutionLayer>(_memory_manager);
             f->configure(input, weights, biases, output, conv_info, weights_info, dilation, act_info, num_groups);
             _function = std::move(f);
+            printf("Renju: ConvolutionMethod::GEMM\n");
             break;
         }
         case ConvolutionMethod::FFT:
@@ -80,6 +83,7 @@ void CLConvolutionLayer::configure(ICLTensor *input, const ICLTensor *weights, c
             auto f = arm_compute::support::cpp14::make_unique<CLFFTConvolutionLayer>(_memory_manager);
             f->configure(input, weights, biases, output, conv_info, act_info);
             _function = std::move(f);
+            printf("Renju: ConvolutionMethod::FFT\n");
             break;
         }
         default:
@@ -208,6 +212,7 @@ ConvolutionMethod CLConvolutionLayer::get_convolution_method(const ITensorInfo *
 
 void CLConvolutionLayer::run()
 {
+    //printf("----RL: Running the convolution layer here.\n");
     prepare();
     _function->run();
 }

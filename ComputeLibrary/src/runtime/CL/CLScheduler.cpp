@@ -106,6 +106,7 @@ void CLScheduler::enqueue(ICLKernel &kernel, bool flush)
     }
 
     // Run kernel
+    // printf("Running the kernel. Is flushed? %s\n", flush ? "Yes!" : "No");
     kernel.run(kernel.window(), _queue);
 
     if(flush)

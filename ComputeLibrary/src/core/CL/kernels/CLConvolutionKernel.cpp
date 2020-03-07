@@ -343,6 +343,7 @@ void CLConvolutionRectangleKernel::run(const Window &window, cl::CommandQueue &q
 
     Window slice = window.first_slice_window_2D();
 
+    printf("RL: fml ----- convolutional layer execution here.");
     do
     {
         unsigned int idx = 0;
